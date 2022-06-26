@@ -26,18 +26,17 @@ public class CustomerTest {
 
     @Test
     public void customerStartsWithMoney(){
-        assertEquals(1000.00, customer1.getMoney(), 0.0);
+        assertEquals(1000.00, customer1.getMoneyAmount(), 0.0);
     }
     @Test
     public void canReduceMoney(){
         customer1.decreaseMoney(guitar1);
-        assertEquals(800.00, customer1.getMoney(), 0.0);
+        assertEquals(800.00, customer1.getMoneyAmount(), 0.0);
     }
 
     @Test
     public void canIncreaseMoney(){
         customer1.increaseMoney(guitar1);
-        assertEquals(1200.00, customer1.getMoney(), 0.0);
-
+        assertEquals(1200.00, customer1.getMoneyAmount(), 0.0);
     }
 }

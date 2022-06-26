@@ -1,5 +1,6 @@
 package instrument_shop;
 
+import behaviours.IControlMoney;
 import behaviours.ISell;
 import instruments.Instrument;
 import people.customer.Customer;
@@ -7,7 +8,7 @@ import people.staff.Staff;
 
 import java.util.ArrayList;
 
-public class InstrumentShop implements ISell {
+public class InstrumentShop implements ISell, IControlMoney {
 
     private String shopName;
     private ArrayList<Instrument> instruments;
@@ -26,7 +27,7 @@ public class InstrumentShop implements ISell {
     public String getShopName() {
         return shopName;
     }
-    public double getTillValue() {
+    public double getMoneyAmount() {
         return till;
     }
 
@@ -40,6 +41,14 @@ public class InstrumentShop implements ISell {
 
     public int getNumberOfStaff(){
         return staff.size();
+    }
+
+    public void increaseMoney(Instrument inputInstrument){
+        till += inputInstrument.getSellingPrice();
+    }
+
+    public void decreaseMoney(Instrument inputInstrument){
+        till -= inputInstrument.getSellingPrice();
     }
 
     public void addStaff(Staff inputStaff) {
@@ -64,12 +73,14 @@ public class InstrumentShop implements ISell {
         return (sellingPrice-buyingPrice)/buyingPrice*100 + "%";
     }
 
-    public void sellInstrument(Customer inputCustomer, Instrument inputInstrument){
-        if(inputCustomer.getMoney() >= inputInstrument.getSellingPrice()){
-            inputCustomer.decreaseMoney(inputInstrument);
-            till += inputInstrument.getSellingPrice();
-            instruments.remove(inputInstrument);
-            inputCustomer.addInstrumentToPurchases(inputInstrument);
-        }
-    }
+
+
+//    public void sellInstrument(Customer inputCustomer, Instrument inputInstrument){
+//        if(inputCustomer.getMoneyAmount() >= inputInstrument.getSellingPrice()){
+//            inputCustomer.decreaseMoney(inputInstrument);
+//            till += inputInstrument.getSellingPrice();
+//            instruments.remove(inputInstrument);
+//            inputCustomer.addInstrumentToPurchases(inputInstrument);
+//        }
+//    }
 }

@@ -21,7 +21,7 @@ public class Customer extends Person implements IControlMoney {
         return purchases.size();
     }
 
-    public double getMoney() {
+    public double getMoneyAmount() {
         return money;
     }
 

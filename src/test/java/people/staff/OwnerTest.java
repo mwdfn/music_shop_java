@@ -4,6 +4,7 @@ import instrument_shop.InstrumentShop;
 import instruments.InstrumentType;
 import instruments.string_instruments.Guitar;
 import org.junit.Before;
+import org.junit.Test;
 import people.customer.Customer;
 
 import static org.junit.Assert.*;
@@ -22,6 +23,16 @@ public class OwnerTest {
         instrumentShop = new InstrumentShop("We're a small, family business, and we only sell string, brass, and woodwind instruments! Alright?!", 5000.00);
     }
 
-    
+//    @Test
+//    public void canSellInstrument(){
+//        instrumentShop.addStaff(owner);
+//        instrumentShop.addCustomer(customer1);
+//        instrumentShop.addInstrumentToInventory(guitar1);
+//        instrumentShop.sellInstrument(customer1,guitar1);
+//        assertEquals(1, customer1.getNumberOfPurchases());
+//        assertEquals(800.00, customer1.getMoneyAmount(),0.0);
+//        assertEquals(5200.00, instrumentShop.getTillValue(), 0.0);
+//        assertEquals(0, instrumentShop.getNumberofInstrumentsInInventory());
+//    }
 
 }
