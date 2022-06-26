@@ -63,4 +63,13 @@ public class InstrumentShop implements ISell {
         double sellingPrice = inputInstrument.getSellingPrice();
         return (sellingPrice-buyingPrice)/buyingPrice*100 + "%";
     }
+
+    public void sellInstrument(Customer inputCustomer, Instrument inputInstrument){
+        if(inputCustomer.getMoney() >= inputInstrument.getSellingPrice()){
+            inputCustomer.decreaseMoney(inputInstrument);
+            till += inputInstrument.getSellingPrice();
+            instruments.remove(inputInstrument);
+            inputCustomer.addInstrumentToPurchases(inputInstrument);
+        }
+    }
 }
