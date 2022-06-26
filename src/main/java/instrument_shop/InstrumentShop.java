@@ -21,4 +21,27 @@ public class InstrumentShop {
         this.customers = new ArrayList<>();
         this.till = till;
     }
+
+    public String getShopName() {
+        return shopName;
+    }
+    public double getTillValue() {
+        return till;
+    }
+
+    public int getNumberofInstrumentsInInventory() {
+        return instruments.size();
+    }
+
+    public int getNumberOfCustomers(){
+        return customers.size();
+    }
+
+    public int getNumberOfStaff(){
+        return staff.size();
+    }
+
+
+    public void addStaff(Owner owner) {
+    }
 }
