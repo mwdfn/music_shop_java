@@ -15,4 +15,12 @@ public enum InstrumentType {
         this.name = name;
         this.family = family;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getFamily() {
+        return family;
+    }
 }
