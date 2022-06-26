@@ -10,4 +10,5 @@ public abstract class Staff extends Person {
         super(name, age, sex);
         this.jobTitle = jobTitle;
     }
+
 }

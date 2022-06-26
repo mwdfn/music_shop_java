@@ -15,4 +15,8 @@ public class Customer extends Person {
         this.money = money;
         this.purchases = new ArrayList<>();
     }
+
+    public int getNumberOfPurchases() {
+        return purchases.size();
+    }
 }
