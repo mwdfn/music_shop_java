@@ -27,17 +27,6 @@ public class OwnerTest {
     public void canTalk(){;
         assertEquals("Welcome to the shop", owner.talk("Welcome to the shop"));
     }
-    
-//    @Test
-//    public void canSellInstrument(){
-//        instrumentShop.addStaff(owner);
-//        instrumentShop.addCustomer(customer1);
-//        instrumentShop.addInstrumentToInventory(guitar1);
-//        instrumentShop.sellInstrument(customer1,guitar1);
-//        assertEquals(1, customer1.getNumberOfPurchases());
-//        assertEquals(800.00, customer1.getMoneyAmount(),0.0);
-//        assertEquals(5200.00, instrumentShop.getTillValue(), 0.0);
-//        assertEquals(0, instrumentShop.getNumberofInstrumentsInInventory());
-//    }
+
 
 }

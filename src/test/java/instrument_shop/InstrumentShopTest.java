@@ -18,6 +18,7 @@ public class InstrumentShopTest {
     Owner owner;
     Customer customer1;
     Customer customer2;
+    Customer customer3;
     @Before
     public void before(){
         instrumentShop = new InstrumentShop("We're a small, family business, and we only sell string, brass, and woodwind instruments! Alright?!", 5000.00);
@@ -26,6 +27,7 @@ public class InstrumentShopTest {
         owner = new Owner("Darren", 42, "male", "owner");
         customer1 = new Customer("Linda", 25, "female", 1000.00);
         customer2 = new Customer("Kieran", 61, "male", 500.00);
+        customer3 = new Customer("Bob", 19, "male", 200.00);
     }
 
     @Test
@@ -50,7 +52,7 @@ public class InstrumentShopTest {
 
     @Test
     public void inventoryStartsEmpty() {
-        assertEquals(0, instrumentShop.getNumberofInstrumentsInInventory());
+        assertEquals(0, instrumentShop.getNumberOfInstrumentsInInventory());
     }
     @Test
     public void canAddStaffMemberToShop() {
@@ -69,7 +71,7 @@ public class InstrumentShopTest {
     public void canAddInstrumentToInventory() {
         instrumentShop.addInstrumentToInventory(guitar1);
         instrumentShop.addInstrumentToInventory(banjo1);
-        assertEquals(2,instrumentShop.getNumberofInstrumentsInInventory());
+        assertEquals(2,instrumentShop.getNumberOfInstrumentsInInventory());
     }
 
     @Test
@@ -77,7 +79,7 @@ public class InstrumentShopTest {
         instrumentShop.addInstrumentToInventory(guitar1);
         instrumentShop.addInstrumentToInventory(banjo1);
         instrumentShop.removeInstrumentFromInventory(guitar1);
-        assertEquals(1,instrumentShop.getNumberofInstrumentsInInventory());
+        assertEquals(1,instrumentShop.getNumberOfInstrumentsInInventory());
     }
 
     @Test
@@ -86,15 +88,34 @@ public class InstrumentShopTest {
         assertEquals("100.0%", instrumentShop.calculateInventoryMarkUp(guitar1));
     }
 
-//    @Test
-//    public void canSellInstrument(){
-//        instrumentShop.addStaff(owner);
-//        instrumentShop.addCustomer(customer1);
-//        instrumentShop.addInstrumentToInventory(guitar1);
+    @Test
+    public void canSellInstrument(){
+        instrumentShop.addStaff(owner);
+        instrumentShop.addCustomer(customer1);
+        instrumentShop.addInstrumentToInventory(guitar1);
 //        instrumentShop.sellInstrument(customer1,guitar1);
-//        assertEquals(1, customer1.getNumberOfPurchases());
-//        assertEquals(800.00, customer1.getMoneyAmount(),0.0);
-//        assertEquals(5200.00, instrumentShop.getTillValue(), 0.0);
-//        assertEquals(0, instrumentShop.getNumberofInstrumentsInInventory());
-//    }
+        assertEquals("Thank you. Have a nice day!", instrumentShop.sellInstrument(customer1,guitar1));
+        assertEquals(1, customer1.getNumberOfPurchases());
+        assertEquals(800.00, customer1.getMoneyAmount(),0.0);
+        assertEquals(5200.00, instrumentShop.getMoneyAmount(), 0.0);
+        assertEquals(0, instrumentShop.getNumberOfInstrumentsInInventory());
+    }
+
+    @Test
+    public void cannotSellOutOfStockInstrument(){
+        instrumentShop.addStaff(owner);
+        instrumentShop.addCustomer(customer1);
+        instrumentShop.addInstrumentToInventory(guitar1);
+        instrumentShop.removeInstrumentFromInventory(guitar1);
+        assertEquals("Sorry, that item is out of stock.", instrumentShop.sellInstrument(customer1,guitar1));
+    }
+
+    @Test
+    public void cannotSellInstrumentIfCustomerLacksFunds(){
+        instrumentShop.addStaff(owner);
+        instrumentShop.addCustomer(customer3);
+        instrumentShop.addInstrumentToInventory(banjo1);
+        assertEquals("Sorry, the banjo is £400.0.",instrumentShop.sellInstrument(customer3,banjo1));
+    }
+
 }

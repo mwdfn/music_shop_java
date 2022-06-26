@@ -1,10 +1,6 @@
 package people.staff;
 
-import behaviours.IControlMoney;
-import instrument_shop.InstrumentShop;
-import instruments.Instrument;
 import people.Person;
-import people.customer.Customer;
 
 public abstract class Staff extends Person {
 

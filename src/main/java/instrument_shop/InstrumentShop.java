@@ -31,7 +31,7 @@ public class InstrumentShop implements ISell, IControlMoney {
         return till;
     }
 
-    public int getNumberofInstrumentsInInventory() {
+    public int getNumberOfInstrumentsInInventory() {
         return instruments.size();
     }
 
@@ -77,14 +77,18 @@ public class InstrumentShop implements ISell, IControlMoney {
         return (sellingPrice-buyingPrice)/buyingPrice*100 + "%";
     }
 
-
-
-//    public void sellInstrument(Customer inputCustomer, Instrument inputInstrument){
-//        if(inputCustomer.getMoneyAmount() >= inputInstrument.getSellingPrice()){
-//            inputCustomer.decreaseMoney(inputInstrument);
-//            till += inputInstrument.getSellingPrice();
-//            instruments.remove(inputInstrument);
-//            inputCustomer.addInstrumentToPurchases(inputInstrument);
-//        }
-//    }
+    public String sellInstrument(Customer inputCustomer, Instrument inputInstrument){
+        if(instruments.contains(inputInstrument) && inputCustomer.getMoneyAmount() >= inputInstrument.getSellingPrice()){
+            inputCustomer.decreaseMoney(inputInstrument);
+            till += inputInstrument.getSellingPrice();
+            instruments.remove(inputInstrument);
+            inputCustomer.addInstrumentToPurchases(inputInstrument);
+            return "Thank you. Have a nice day!";
+        } else if (!instruments.contains(inputInstrument)){
+            return "Sorry, that item is out of stock.";
+        } else if (inputCustomer.getMoneyAmount() < inputInstrument.getSellingPrice()) {
+            return "Sorry, the " + inputInstrument.getInstrumentName() + " is £" + inputInstrument.getSellingPrice()+ ".";
+        }
+        return "Hope to see you again!";
+    }
 }

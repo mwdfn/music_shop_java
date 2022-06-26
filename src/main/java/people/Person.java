@@ -1,7 +1,5 @@
 package people;
 
-import behaviours.ITalk;
-
 public abstract class Person{
 
     private String name;
