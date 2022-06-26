@@ -54,4 +54,7 @@ public class InstrumentShop {
         instruments.add(inputInstrument);
     }
 
+    public void removeInstrumentFromInventory(Instrument inputInstrument) {
+        instruments.remove(inputInstrument);
+    }
 }

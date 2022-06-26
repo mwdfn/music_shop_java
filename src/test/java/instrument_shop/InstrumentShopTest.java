@@ -71,4 +71,13 @@ public class InstrumentShopTest {
         instrumentShop.addInstrumentToInventory(banjo1);
         assertEquals(2,instrumentShop.getNumberofInstrumentsInInventory());
     }
+
+    @Test
+    public void canRemoveInstrumentFromInventory(){
+        instrumentShop.addInstrumentToInventory(guitar1);
+        instrumentShop.addInstrumentToInventory(banjo1);
+        instrumentShop.removeInstrumentFromInventory(guitar1);
+        assertEquals(1,instrumentShop.getNumberofInstrumentsInInventory());
+
+    }
 }
