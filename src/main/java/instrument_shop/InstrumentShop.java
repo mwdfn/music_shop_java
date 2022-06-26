@@ -35,6 +35,10 @@ public class InstrumentShop implements ISell, IControlMoney {
         return instruments.size();
     }
 
+    public void removeFromInventory(Instrument inputInstrument){
+        instruments.remove(inputInstrument);
+    }
+
     public int getNumberOfCustomers(){
         return customers.size();
     }

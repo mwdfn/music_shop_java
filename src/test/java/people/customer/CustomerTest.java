@@ -39,4 +39,9 @@ public class CustomerTest {
         customer1.increaseMoney(guitar1);
         assertEquals(1200.00, customer1.getMoneyAmount(), 0.0);
     }
+
+    @Test
+    public void canTalk(){
+        assertEquals("Hello there", customer1.talk("Hello there"));
+    }
 }

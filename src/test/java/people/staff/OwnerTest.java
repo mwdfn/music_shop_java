@@ -23,6 +23,11 @@ public class OwnerTest {
         instrumentShop = new InstrumentShop("We're a small, family business, and we only sell string, brass, and woodwind instruments! Alright?!", 5000.00);
     }
 
+    @Test
+    public void canTalk(){;
+        assertEquals("Welcome to the shop", owner.talk("Welcome to the shop"));
+    }
+    
 //    @Test
 //    public void canSellInstrument(){
 //        instrumentShop.addStaff(owner);

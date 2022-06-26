@@ -1,6 +1,8 @@
 package people;
 
-public abstract class Person {
+import behaviours.ITalk;
+
+public abstract class Person{
 
     private String name;
     private int age;
@@ -11,4 +13,6 @@ public abstract class Person {
         this.age = age;
         this.sex = sex;
     }
+
+
 }

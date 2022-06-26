@@ -49,7 +49,7 @@ public class InstrumentShopTest {
     }
 
     @Test
-    public void name() {
+    public void inventoryStartsEmpty() {
         assertEquals(0, instrumentShop.getNumberofInstrumentsInInventory());
     }
     @Test
