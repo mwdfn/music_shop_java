@@ -78,6 +78,11 @@ public class InstrumentShopTest {
         instrumentShop.addInstrumentToInventory(banjo1);
         instrumentShop.removeInstrumentFromInventory(guitar1);
         assertEquals(1,instrumentShop.getNumberofInstrumentsInInventory());
+    }
 
+    @Test
+    public void canCalculateInstrumentMarkUpWithInterface(){
+        instrumentShop.addInstrumentToInventory(guitar1);
+        assertEquals(100.00, instrumentShop.calculateInventoryMarkUp(guitar1), 0.0);
     }
 }

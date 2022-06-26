@@ -1,13 +1,13 @@
 package instrument_shop;
 
+import behaviours.ISell;
 import instruments.Instrument;
 import people.customer.Customer;
-import people.staff.Owner;
 import people.staff.Staff;
 
 import java.util.ArrayList;
 
-public class InstrumentShop {
+public class InstrumentShop implements ISell {
 
     private String shopName;
     private ArrayList<Instrument> instruments;
@@ -56,5 +56,11 @@ public class InstrumentShop {
 
     public void removeInstrumentFromInventory(Instrument inputInstrument) {
         instruments.remove(inputInstrument);
+    }
+
+    public double calculateInventoryMarkUp(Instrument inputInstrument){
+        double buyingPrice = inputInstrument.getBuyingPrice();
+        double sellingPrice = inputInstrument.getSellingPrice();
+        return (sellingPrice-buyingPrice)/buyingPrice*100;
     }
 }
