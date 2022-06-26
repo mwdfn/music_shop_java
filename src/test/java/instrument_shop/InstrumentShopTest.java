@@ -26,7 +26,6 @@ public class InstrumentShopTest {
         customer1 = new Customer("Linda", 25, "female", 1000.00);
     }
 
-
     @Test
     public void shopHasAName() {
         assertEquals("We're a small, family business, and we only sell string, brass, and woodwind instruments! Alright?!", instrumentShop.getShopName());
@@ -59,11 +58,14 @@ public class InstrumentShopTest {
 
     @Test
     public void canAddCustomerToShop() {
+        instrumentShop.addCustomer(customer1);
         assertEquals(1, instrumentShop.getNumberOfCustomers());
     }
 
     @Test
     public void canAddInstrumentToInventory() {
-        assertEquals(1,instrumentShop.getNumberofInstrumentsInInventory());
+        instrumentShop.addInstrumentToInventory(guitar1);
+        instrumentShop.addInstrumentToInventory(banjo1);
+        assertEquals(2,instrumentShop.getNumberofInstrumentsInInventory());
     }
 }

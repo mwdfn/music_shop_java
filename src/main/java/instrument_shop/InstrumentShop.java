@@ -3,6 +3,7 @@ package instrument_shop;
 import instruments.Instrument;
 import people.customer.Customer;
 import people.staff.Owner;
+import people.staff.Staff;
 
 import java.util.ArrayList;
 
@@ -10,7 +11,7 @@ public class InstrumentShop {
 
     private String shopName;
     private ArrayList<Instrument> instruments;
-    private ArrayList<Owner> staff;
+    private ArrayList<Staff> staff;
     private ArrayList<Customer> customers;
     private double till;
 
@@ -41,7 +42,16 @@ public class InstrumentShop {
         return staff.size();
     }
 
-
-    public void addStaff(Owner owner) {
+    public void addStaff(Staff inputStaff) {
+        staff.add(inputStaff);
     }
+
+    public void addCustomer(Customer inputCustomer) {
+        customers.add(inputCustomer);
+    }
+
+    public void addInstrumentToInventory(Instrument inputInstrument){
+        instruments.add(inputInstrument);
+    }
+
 }
