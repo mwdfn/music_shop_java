@@ -58,9 +58,9 @@ public class InstrumentShop implements ISell {
         instruments.remove(inputInstrument);
     }
 
-    public double calculateInventoryMarkUp(Instrument inputInstrument){
+    public String calculateInventoryMarkUp(Instrument inputInstrument){
         double buyingPrice = inputInstrument.getBuyingPrice();
         double sellingPrice = inputInstrument.getSellingPrice();
-        return (sellingPrice-buyingPrice)/buyingPrice*100;
+        return (sellingPrice-buyingPrice)/buyingPrice*100 + "%";
     }
 }

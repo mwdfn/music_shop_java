@@ -1,11 +1,12 @@
 package people.customer;
 
+import behaviours.IControlMoney;
 import instruments.Instrument;
 import people.Person;
 
 import java.util.ArrayList;
 
-public class Customer extends Person {
+public class Customer extends Person implements IControlMoney {
 
     private double money;
     private ArrayList<Instrument> purchases;
@@ -19,4 +20,22 @@ public class Customer extends Person {
     public int getNumberOfPurchases() {
         return purchases.size();
     }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void addInstrumentToPurchases(Instrument inputInstrument){
+        purchases.add(inputInstrument);
+    }
+
+    public void increaseMoney(Instrument inputInstrument){
+        money += inputInstrument.getSellingPrice();
+    };
+
+    public void decreaseMoney(Instrument inputInstrument){
+        money -= inputInstrument.getSellingPrice();
+    };
+
+
 }

@@ -4,6 +4,6 @@ import instruments.Instrument;
 
 public interface ISell {
 
-    double calculateInventoryMarkUp(Instrument inputInstrument);
+    String calculateInventoryMarkUp(Instrument inputInstrument);
 
 }

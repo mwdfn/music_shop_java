@@ -83,6 +83,6 @@ public class InstrumentShopTest {
     @Test
     public void canCalculateInstrumentMarkUpWithInterface(){
         instrumentShop.addInstrumentToInventory(guitar1);
-        assertEquals(100.00, instrumentShop.calculateInventoryMarkUp(guitar1), 0.0);
+        assertEquals("100.0%", instrumentShop.calculateInventoryMarkUp(guitar1));
     }
 }
