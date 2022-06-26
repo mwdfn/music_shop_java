@@ -17,6 +17,7 @@ public class InstrumentShopTest {
     Instrument banjo1;
     Owner owner;
     Customer customer1;
+    Customer customer2;
     @Before
     public void before(){
         instrumentShop = new InstrumentShop("We're a small, family business, and we only sell string, brass, and woodwind instruments! Alright?!", 5000.00);
@@ -24,6 +25,7 @@ public class InstrumentShopTest {
         banjo1 = new Guitar(InstrumentType.STRING2,InstrumentType.STRING2,"mahogany",250.00,400.00, 5);
         owner = new Owner("Darren", 42, "male", "owner");
         customer1 = new Customer("Linda", 25, "female", 1000.00);
+        customer2 = new Customer("Kieran", 61, "male", 500.00);
     }
 
     @Test
@@ -59,7 +61,8 @@ public class InstrumentShopTest {
     @Test
     public void canAddCustomerToShop() {
         instrumentShop.addCustomer(customer1);
-        assertEquals(1, instrumentShop.getNumberOfCustomers());
+        instrumentShop.addCustomer(customer2);
+        assertEquals(2, instrumentShop.getNumberOfCustomers());
     }
 
     @Test
